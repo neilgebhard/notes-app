@@ -1,0 +1,28 @@
+{
+  "name": "notes-app-backend",
+  "version": "1.0.0",
+  "description": "Lambda functions for Notes App",
+  "scripts": {
+    "build": "npm run build:clean && npm run build:functions && npm run build:layer",
+    "build:clean": "rm -rf dist layers",
+    "build:functions": "npm run build:get-notes && npm run build:create-note && npm run build:update-note && npm run build:delete-note",
+    "build:get-notes": "mkdir -p dist && cd src/get-notes && zip -r ../../dist/get-notes.zip .",
+    "build:create-note": "cd src/create-note && zip -r ../../dist/create-note.zip .",
+    "build:update-note": "cd src/update-note && zip -r ../../dist/update-note.zip .",
+    "build:delete-note": "cd src/delete-note && zip -r ../../dist/delete-note.zip .",
+    "build:layer": "npm run build:layer:install && npm run build:layer:package",
+    "build:layer:install": "mkdir -p layers/nodejs && cp package.json layers/nodejs/ && cd layers/nodejs && npm install --production",
+    "build:layer:package": "cd layers && zip -r dependencies.zip nodejs",
+    "deploy": "npm run build && cd ../terraform && terraform apply"
+  },
+  "dependencies": {
+    "pg": "^8.11.3",
+    "@aws-sdk/client-secrets-manager": "^3.529.0",
+    "@aws-sdk/client-s3": "^3.529.0"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.133",
+    "@types/node": "^20.11.19",
+    "@types/pg": "^8.11.0"
+  }
+}
