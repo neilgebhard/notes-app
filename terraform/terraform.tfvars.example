@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and fill in your values
+# cp terraform.tfvars.example terraform.tfvars
+
+aws_region  = "us-east-1"
+environment = "dev"
+project_name = "notes-app"
+
+# Set these or use environment variables:
+# export TF_VAR_db_username="your_username"
+# export TF_VAR_db_password="your_secure_password"
+db_username = "notesapp"
+db_password = "CHANGE_ME_TO_SECURE_PASSWORD"
