@@ -80,3 +80,24 @@ output "cognito_identity_pool_id" {
   description = "Cognito Identity Pool ID"
   value       = aws_cognito_identity_pool.main.id
 }
+
+# S3 Outputs
+output "frontend_bucket_name" {
+  description = "Frontend S3 bucket name"
+  value       = aws_s3_bucket.frontend.bucket
+}
+
+output "frontend_bucket_arn" {
+  description = "Frontend S3 bucket ARN"
+  value       = aws_s3_bucket.frontend.arn
+}
+
+output "attachments_bucket_name" {
+  description = "Attachments S3 bucket name"
+  value       = aws_s3_bucket.attachments.bucket
+}
+
+output "attachments_bucket_arn" {
+  description = "Attachments S3 bucket ARN"
+  value       = aws_s3_bucket.attachments.arn
+}
