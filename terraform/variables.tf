@@ -28,3 +28,21 @@ variable "db_password" {
   type        = string
   sensitive   = true
 }
+
+variable "db_instance_class" {
+  description = "RDS instance class"
+  type        = string
+  default     = "db.t4g.micro" # Free tier eligible
+}
+
+variable "db_allocated_storage" {
+  description = "Allocated storage in GB"
+  type        = number
+  default     = 20
+}
+
+variable "db_name" {
+  description = "Initial database name"
+  type        = string
+  default     = "notesdb"
+}
