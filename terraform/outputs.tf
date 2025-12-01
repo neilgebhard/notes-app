@@ -143,3 +143,19 @@ output "api_gateway_stage" {
   description = "API Gateway stage name"
   value       = aws_api_gateway_stage.main.stage_name
 }
+
+# CloudFront Outputs
+output "cloudfront_distribution_id" {
+  description = "CloudFront distribution ID"
+  value       = aws_cloudfront_distribution.frontend.id
+}
+
+output "cloudfront_domain_name" {
+  description = "CloudFront distribution domain name"
+  value       = aws_cloudfront_distribution.frontend.domain_name
+}
+
+output "cloudfront_url" {
+  description = "CloudFront URL for frontend"
+  value       = "https://${aws_cloudfront_distribution.frontend.domain_name}"
+}
