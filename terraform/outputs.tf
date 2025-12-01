@@ -101,3 +101,29 @@ output "attachments_bucket_arn" {
   description = "Attachments S3 bucket ARN"
   value       = aws_s3_bucket.attachments.arn
 }
+
+# Lambda Outputs
+output "lambda_get_notes_arn" {
+  description = "Get Notes Lambda function ARN"
+  value       = aws_lambda_function.get_notes.arn
+}
+
+output "lambda_create_note_arn" {
+  description = "Create Note Lambda function ARN"
+  value       = aws_lambda_function.create_note.arn
+}
+
+output "lambda_update_note_arn" {
+  description = "Update Note Lambda function ARN"
+  value       = aws_lambda_function.update_note.arn
+}
+
+output "lambda_delete_note_arn" {
+  description = "Delete Note Lambda function ARN"
+  value       = aws_lambda_function.delete_note.arn
+}
+
+output "lambda_execution_role_arn" {
+  description = "Lambda execution role ARN"
+  value       = aws_iam_role.lambda_execution.arn
+}
