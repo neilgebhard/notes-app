@@ -127,3 +127,19 @@ output "lambda_execution_role_arn" {
   description = "Lambda execution role ARN"
   value       = aws_iam_role.lambda_execution.arn
 }
+
+# API Gateway Outputs
+output "api_gateway_id" {
+  description = "API Gateway REST API ID"
+  value       = aws_api_gateway_rest_api.main.id
+}
+
+output "api_gateway_url" {
+  description = "API Gateway invoke URL"
+  value       = "${aws_api_gateway_stage.main.invoke_url}/notes"
+}
+
+output "api_gateway_stage" {
+  description = "API Gateway stage name"
+  value       = aws_api_gateway_stage.main.stage_name
+}
